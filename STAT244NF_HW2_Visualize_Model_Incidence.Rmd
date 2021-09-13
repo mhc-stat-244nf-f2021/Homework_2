@@ -46,12 +46,6 @@ nipah_malaysia <- nipah_malaysia %>%
 
 Since we are most familiar with linear regression from previous coursework, we might be inclined first to see if a linear regression model will allow us to adequately explain the relationship between time and new cases.
 
-```{r}
-ggplot(data=nipah_malaysia, aes(x=date, y=log(all_cases))) +
-  geom_point() 
-```
-
-
 ### Assumptions of a linear model
 
 In an introductory statistics course, you learned that certain conditions need to be checked for a linear regression model, including:
@@ -81,13 +75,7 @@ In an introductory statistics course, you learned that certain conditions need t
 **Question LR 4:** We can get around the problem in LR 3 shifting all the counts by 1 so that we get all finite values for `log_all_cases`. Copy and paste your code from Question LR 2 and modify that code: `log_all_cases = log(all_cases+1)`. Now fit a linear model where the outcome is this new `log_all_cases` variable and the explanatory variable is `date`. What is the estimated growth rate for this viral outbreak? 
 
 ```{r}
-nipah_malaysia <- nipah_malaysia %>%
-  mutate(
-    log_all_cases = log(all_cases + 1)
-  )
 
-tes <- lm(log_all_cases ~ date, data=nipah_malaysia)
-summary(tes)
 ```
 
 ### Question LR 5:
